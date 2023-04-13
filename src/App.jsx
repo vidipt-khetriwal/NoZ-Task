@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  const [name, setName] = useState("Vidipt Khetriwal");
+  const [name, setName] = useState("Vidipt");
   const navigate = useNavigate();
 
   const buttonClick = () => {
@@ -21,9 +21,11 @@ function App() {
           </div>
           <input
             type="text"
-            placeholder="Vidipt Khetriwal"
+            placeholder="Vidipt"
             className="p-5 border-2 border-teal border-solid rounded-3xl w-4/10 transition duration-500 ease-in-out focus:outline-none"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) =>
+              e.target.value == "" ? setName("Vidipt") : setName(e.target.value)
+            }
           />
           <button
             className=" m-8 bg-teal p-4 rounded-3xl"
