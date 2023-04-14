@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 export default function Calendar() {
   const { state } = useLocation();
   const { name } = state;
-
+  const [headerKey, setHeaderKey] = useState(0);
   const [events, setEvents] = useState([
     {
       Id: 1,
@@ -50,6 +50,7 @@ export default function Calendar() {
   const handleChange = (newEvents) => {
     // const temp = [...newEvents];
     setEvents(newEvents);
+    setHeaderKey(headerKey + 1);
     console.log("Inside Handle Change", events);
   };
 
@@ -59,7 +60,7 @@ export default function Calendar() {
         <NavBar name={name} />
         <div className="flex w-full h-9/10">
           <div className="w-7/10 h-full">
-            <Header name={name} events={events} />
+            <Header name={name} key={headerKey} events={events} />
             <CalendarComponent events={events} handleChange={handleChange} />
           </div>
           <div className="w-3/10">
