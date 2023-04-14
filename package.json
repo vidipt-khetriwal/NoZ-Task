@@ -12,6 +12,7 @@
     "@syncfusion/ej2-react-calendars": "^21.1.38",
     "@syncfusion/ej2-react-dropdowns": "^21.1.39",
     "@syncfusion/ej2-react-schedule": "^21.1.39",
+    "path": "^0.12.7",
     "quill": "^1.3.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
