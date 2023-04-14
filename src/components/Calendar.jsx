@@ -48,13 +48,19 @@ export default function Calendar(props) {
     handleChange(events);
   }
 
+  function onPopupOpen(args) {
+    console.log("ARGS: ", args);
+    console.log("Events: ", events);
+    handleChange(events);
+  }
+
   const editorWindowTemplate = (props) => {
     const ref = useRef(null);
     return (
       <table className="custom-event-editor" style={{ width: "100%" }}>
         <tbody>
           <tr>
-            <td className="e-textlabel">Title</td>
+            <td className="e-textlabel">Title *</td>
             <td>
               <input
                 id="Summary"
@@ -83,13 +89,14 @@ export default function Calendar(props) {
           </tr>
 
           <tr>
-            <td className="e-textlabel">From</td>
+            <td className="e-textlabel">From *</td>
             <td>
               <DateTimePickerComponent
                 format="dd/MM/yy hh:mm a"
                 id="StartTime"
                 data-name="StartTime"
                 value={new Date(props.startTime || props.StartTime)}
+                required={true}
                 className="e-field"
                 ref={(date) => {
                   startObj = date;
@@ -99,7 +106,7 @@ export default function Calendar(props) {
           </tr>
 
           <tr>
-            <td className="e-textlabel">To</td>
+            <td className="e-textlabel">To *</td>
             <td>
               <DateTimePickerComponent
                 format="dd/MM/yy hh:mm a"
@@ -107,6 +114,7 @@ export default function Calendar(props) {
                 data-name="EndTime"
                 value={new Date(props.endTime || props.EndTime)}
                 className="e-field"
+                required={true}
                 ref={(date) => {
                   endObj = date;
                 }}
@@ -145,6 +153,7 @@ export default function Calendar(props) {
         className="template-wrap"
         editorTemplate={editorWindowTemplate}
         popupClose={onPopupClose}
+        popupOpen={onPopupOpen}
         ref={(schedule) => (scheduleObj = schedule)}
       >
         <ViewsDirective>

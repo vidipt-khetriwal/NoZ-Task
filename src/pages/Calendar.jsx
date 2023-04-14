@@ -48,9 +48,10 @@ export default function Calendar() {
   ]);
 
   const handleChange = (newEvents) => {
-    // const temp = [...newEvents];
+    console.log("Header Key before update: ", headerKey);
     setEvents(newEvents);
-    setHeaderKey(headerKey + 1);
+    setHeaderKey(events.length);
+    console.log("Header Key after update: ", headerKey);
     console.log("Inside Handle Change", events);
   };
 
