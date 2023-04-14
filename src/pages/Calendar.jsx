@@ -48,8 +48,9 @@ export default function Calendar() {
   ]);
 
   const handleChange = (newEvents) => {
-    console.log("Inside Handle Change", newEvents);
+    // const temp = [...newEvents];
     setEvents(newEvents);
+    console.log("Inside Handle Change", events);
   };
 
   return (
