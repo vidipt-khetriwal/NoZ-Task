@@ -58,7 +58,7 @@ export default function Calendar() {
         <NavBar name={name} />
         <div className="flex w-full h-9/10">
           <div className="w-7/10 h-full">
-            <Header name={name} />
+            <Header name={name} events={events} />
             <CalendarComponent events={events} handleChange={handleChange} />
           </div>
           <div className="w-3/10">
